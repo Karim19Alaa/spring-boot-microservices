@@ -9,8 +9,8 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableEurekaClient
-@EnableCircuitBreaker
+// @EnableEurekaClient
+// @EnableCircuitBreaker
 public class MovieInfoServiceApplication {
 
     private final int TIMEOUT = 3000;   // 3 seconds
