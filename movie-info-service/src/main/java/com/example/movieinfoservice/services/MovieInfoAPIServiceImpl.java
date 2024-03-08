@@ -21,9 +21,6 @@ public class MovieInfoAPIServiceImpl implements MovieInfoService{
     @Override
     public MovieSummary getMovieInfo(String movieID) {
         final String url = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKey;
-        System.out.println("================================================================");
-        System.out.println(url);
-        System.out.println("================================================================");
 
         return restTemplate.getForObject(url, MovieSummary.class);
     }
