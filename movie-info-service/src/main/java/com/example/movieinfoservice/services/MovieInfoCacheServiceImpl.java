@@ -3,19 +3,20 @@ package com.example.movieinfoservice.services;
 import java.util.Optional;
 
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Service;
 
 import com.example.movieinfoservice.models.MovieSummary;
-import com.example.movieinfoservice.repository.MovieInfoRepository;
 
 @Service
 @Primary
 public class MovieInfoCacheServiceImpl implements MovieInfoService{
 
     private final MovieInfoAPIServiceImpl movieInfoAPIService;
-    private final MovieInfoRepository movieInfoRepository;
+    private final MongoRepository<MovieSummary, String> movieInfoRepository;
 
-    public MovieInfoCacheServiceImpl(MovieInfoAPIServiceImpl movieInfoAPIService, MovieInfoRepository movieInfoRepository){
+    public MovieInfoCacheServiceImpl(MovieInfoAPIServiceImpl movieInfoAPIService,
+                                     MongoRepository<MovieSummary, String> movieInfoRepository){
         this.movieInfoAPIService = movieInfoAPIService;
         this.movieInfoRepository = movieInfoRepository;
     }
