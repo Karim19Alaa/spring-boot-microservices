@@ -18,7 +18,7 @@ import com.example.movieinfoservice.models.CachedMovieSummary;
 @Primary
 public class MovieInfoCacheServiceImpl implements MovieInfoService{
 
-    Logger logger = LoggerFactory.getLogger(MovieInfoAPIServiceImpl.class);
+    private Logger logger = LoggerFactory.getLogger(MovieInfoAPIServiceImpl.class);
 
     private final MovieInfoAPIServiceImpl movieInfoAPIService;
     private final MongoRepository<CachedMovieSummary, String> movieInfoRepository;
