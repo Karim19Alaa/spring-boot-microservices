@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "com.example.newtrendingmoviesservice.protobuf";
+option java_outer_classname = "TrendingProto";
+
+package com.example.newtrendingmoviesservice.protobuf;
+
+
+service TrendingMoviesService {
+    rpc GetTopMoviesByRating (TopMoviesRequest) returns (TopMoviesResponse);
+}
+
+message TopMoviesRequest {
+    int32 limit = 1;
+}
+
+message TopMoviesResponse {
+    repeated Movie top_movies = 1;
+}
+
+message Movie {
+    string movieId = 1;
+    string name= 2;
+    string description = 3;
+}
