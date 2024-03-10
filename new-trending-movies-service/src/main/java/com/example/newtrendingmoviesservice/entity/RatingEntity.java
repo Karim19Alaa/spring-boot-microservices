@@ -1,6 +1,6 @@
-package com.example.ratingsservice.entity;
+package com.example.newtrendingmoviesservice.entity;
 
-import com.example.ratingsservice.models.Rating;
+import com.example.newtrendingmoviesservice.models.Rating;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
