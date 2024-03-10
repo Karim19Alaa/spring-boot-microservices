@@ -1,11 +1,6 @@
 package com.example.movieinfoservice.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document("movie_summary")
 public class MovieSummary {
-    @Id
     private String id;
 
     private String title;
@@ -18,8 +13,15 @@ public class MovieSummary {
         this.overview = overview;
     }
 
-    public MovieSummary(){}
+    public MovieSummary(CachedMovieSummary movieSummaryCache){
+        super();
+        this.id = movieSummaryCache.getId();
+        this.title = movieSummaryCache.getTitle();
+        this.overview = movieSummaryCache.getOverview();
+    }
 
+    public MovieSummary(){}
+    
     public String getId() {
         return id;
     }
@@ -42,5 +44,9 @@ public class MovieSummary {
 
     public void setOverview(String overview) {
         this.overview = overview;
+    }
+
+    public static MovieSummary fromCachedMovieSummary(CachedMovieSummary cachedMovieSummary) {
+        return new MovieSummary(cachedMovieSummary);
     }
 }
