@@ -1,8 +1,14 @@
 package com.example.newtrendingmoviesservice.dto;
 
+
 public class MovieRatingDto {
     private String movieId;
     private Double avgRating;
+
+    public MovieRatingDto(String movieId, Double avgRating) {
+        this.movieId = movieId;
+        this.avgRating = avgRating;
+    }
 
     public String getMovieId() {
         return movieId;

@@ -4,8 +4,10 @@ import com.example.newtrendingmoviesservice.models.Movie;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name= "Movie")
+@Entity(name= "movie")
+@Table(name = "movie") // Add this line to specify the table name
 public class MovieEntity {
 
     @Id

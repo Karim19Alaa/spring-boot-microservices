@@ -10,7 +10,9 @@ service TrendingMoviesService {
     rpc GetTopMoviesByRating (TopMoviesRequest) returns (TopMoviesResponse);
 }
 
-message TopMoviesRequest {}
+message TopMoviesRequest {
+    int32 limit = 1;
+}
 
 message TopMoviesResponse {
     repeated Movie top_movies = 1;

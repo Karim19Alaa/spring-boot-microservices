@@ -1,12 +1,12 @@
 package com.example.newtrendingmoviesservice.protobuf;
 
-import com.example.newtrendingmoviesservice.dto.MovieRatingDto;
 import com.example.newtrendingmoviesservice.models.Movie;
 import com.example.newtrendingmoviesservice.repository.MovieRepository;
 import com.example.newtrendingmoviesservice.repository.RatingRepository;
 import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -23,11 +23,12 @@ public class TrendingMoviesServiceImpl extends TrendingMoviesServiceGrpc.Trendin
 
     @Override
     public void getTopMoviesByRating(TrendingProto.TopMoviesRequest request, StreamObserver<TrendingProto.TopMoviesResponse> responseObserver) {
-        List<MovieRatingDto> dbMovies = ratingsRepo.findTopRatedMovies(10);
+        System.out.println(request.getLimit());
+        List<String> dbMovies = ratingsRepo.findTopRatedMovies(request.getLimit());
         List<TrendingProto.Movie> movies = new ArrayList<>();
 
-        for(MovieRatingDto movieDTO:dbMovies){
-            Movie movie = movieRepo.findById(movieDTO.getMovieId()).get().toMovie();
+        for(String movieID:dbMovies){
+            Movie movie = movieRepo.findById(movieID).get().toMovie();
             movies.add(TrendingProto.Movie.newBuilder()
                     .setMovieId(movie.getMovieId())
                     .setDescription(movie.getDescription())

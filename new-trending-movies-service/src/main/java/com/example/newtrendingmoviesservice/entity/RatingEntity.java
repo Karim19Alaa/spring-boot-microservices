@@ -2,12 +2,10 @@ package com.example.newtrendingmoviesservice.entity;
 
 import com.example.newtrendingmoviesservice.models.Rating;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "ratings")
+@Table(name = "ratings")
 public class RatingEntity {
 
     @Id

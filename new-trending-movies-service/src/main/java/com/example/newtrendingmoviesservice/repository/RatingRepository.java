@@ -1,6 +1,5 @@
 package com.example.newtrendingmoviesservice.repository;
 
-import com.example.newtrendingmoviesservice.dto.MovieRatingDto;
 import com.example.newtrendingmoviesservice.entity.RatingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,7 +11,7 @@ import java.util.List;
 @Repository
 public interface RatingRepository extends JpaRepository<RatingEntity, Long> {
 
-    @Query(value = "SELECT r.movie_id as movieId, AVG(r.rating) as avgRating FROM RatingEntity r GROUP BY r.movie_id ORDER BY avgRating DESC LIMIT :limit", nativeQuery = true)
-    List<MovieRatingDto> findTopRatedMovies(@Param("limit") Integer limit);
+    @Query(value = "SELECT r.movie_id FROM ratings r GROUP BY r.movie_id ORDER BY AVG(r.rating) DESC LIMIT :limit", nativeQuery = true)
+    List<String> findTopRatedMovies(@Param("limit") Integer limit);
 
 }

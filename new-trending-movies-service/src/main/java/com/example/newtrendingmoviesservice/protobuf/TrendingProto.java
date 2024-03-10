@@ -27,6 +27,12 @@ public final class TrendingProto {
   public interface TopMoviesRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.example.newtrendingmoviesservice.protobuf.TopMoviesRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 limit = 1;</code>
+     * @return The limit.
+     */
+    int getLimit();
   }
   /**
    * Protobuf type {@code com.example.newtrendingmoviesservice.protobuf.TopMoviesRequest}
@@ -65,6 +71,17 @@ public final class TrendingProto {
               com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest.class, com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest.Builder.class);
     }
 
+    public static final int LIMIT_FIELD_NUMBER = 1;
+    private int limit_ = 0;
+    /**
+     * <code>int32 limit = 1;</code>
+     * @return The limit.
+     */
+    @java.lang.Override
+    public int getLimit() {
+      return limit_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -79,6 +96,9 @@ public final class TrendingProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (limit_ != 0) {
+        output.writeInt32(1, limit_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -88,6 +108,10 @@ public final class TrendingProto {
       if (size != -1) return size;
 
       size = 0;
+      if (limit_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, limit_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -103,6 +127,8 @@ public final class TrendingProto {
       }
       com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest other = (com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest) obj;
 
+      if (getLimit()
+          != other.getLimit()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -114,6 +140,8 @@ public final class TrendingProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getLimit();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -244,6 +272,8 @@ public final class TrendingProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        limit_ = 0;
         return this;
       }
 
@@ -270,8 +300,16 @@ public final class TrendingProto {
       @java.lang.Override
       public com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest buildPartial() {
         com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest result = new com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.limit_ = limit_;
+        }
       }
 
       @java.lang.Override
@@ -286,6 +324,9 @@ public final class TrendingProto {
 
       public Builder mergeFrom(com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest other) {
         if (other == com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest.getDefaultInstance()) return this;
+        if (other.getLimit() != 0) {
+          setLimit(other.getLimit());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -312,6 +353,11 @@ public final class TrendingProto {
               case 0:
                 done = true;
                 break;
+              case 8: {
+                limit_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -325,6 +371,39 @@ public final class TrendingProto {
         } finally {
           onChanged();
         } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int limit_ ;
+      /**
+       * <code>int32 limit = 1;</code>
+       * @return The limit.
+       */
+      @java.lang.Override
+      public int getLimit() {
+        return limit_;
+      }
+      /**
+       * <code>int32 limit = 1;</code>
+       * @param value The limit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLimit(int value) {
+
+        limit_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 limit = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLimit() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        limit_ = 0;
+        onChanged();
         return this;
       }
 
@@ -1950,18 +2029,18 @@ public final class TrendingProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\016trending.proto\022-com.example.newtrendin" +
-      "gmoviesservice.protobuf\"\022\n\020TopMoviesRequ" +
-      "est\"]\n\021TopMoviesResponse\022H\n\ntop_movies\030\001" +
-      " \003(\01324.com.example.newtrendingmoviesserv" +
-      "ice.protobuf.Movie\";\n\005Movie\022\017\n\007movieId\030\001" +
-      " \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t2" +
-      "\263\001\n\025TrendingMoviesService\022\231\001\n\024GetTopMovi" +
-      "esByRating\022?.com.example.newtrendingmovi" +
-      "esservice.protobuf.TopMoviesRequest\032@.co" +
-      "m.example.newtrendingmoviesservice.proto" +
-      "buf.TopMoviesResponseB>\n-com.example.new" +
-      "trendingmoviesservice.protobufB\rTrending" +
-      "Protob\006proto3"
+      "gmoviesservice.protobuf\"!\n\020TopMoviesRequ" +
+      "est\022\r\n\005limit\030\001 \001(\005\"]\n\021TopMoviesResponse\022" +
+      "H\n\ntop_movies\030\001 \003(\01324.com.example.newtre" +
+      "ndingmoviesservice.protobuf.Movie\";\n\005Mov" +
+      "ie\022\017\n\007movieId\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013des" +
+      "cription\030\003 \001(\t2\263\001\n\025TrendingMoviesService" +
+      "\022\231\001\n\024GetTopMoviesByRating\022?.com.example." +
+      "newtrendingmoviesservice.protobuf.TopMov" +
+      "iesRequest\032@.com.example.newtrendingmovi" +
+      "esservice.protobuf.TopMoviesResponseB>\n-" +
+      "com.example.newtrendingmoviesservice.pro" +
+      "tobufB\rTrendingProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1972,7 +2051,7 @@ public final class TrendingProto {
     internal_static_com_example_newtrendingmoviesservice_protobuf_TopMoviesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_example_newtrendingmoviesservice_protobuf_TopMoviesRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Limit", });
     internal_static_com_example_newtrendingmoviesservice_protobuf_TopMoviesResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_example_newtrendingmoviesservice_protobuf_TopMoviesResponse_fieldAccessorTable = new
