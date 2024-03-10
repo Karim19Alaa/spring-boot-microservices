@@ -4,15 +4,11 @@ import com.example.movieinfoservice.models.Movie;
 import com.example.movieinfoservice.models.MovieSummary;
 import com.example.movieinfoservice.services.MovieInfoService;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/movies")

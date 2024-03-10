@@ -3,7 +3,6 @@ package com.example.movieinfoservice.models;
 import java.time.Instant;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
