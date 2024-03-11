@@ -1,4 +1,4 @@
-package com.example.newtrendingmoviesservice;
+package com.newtrendingmoviesservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

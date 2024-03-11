@@ -1,4 +1,4 @@
-package com.example.newtrendingmoviesservice.dto;
+package com.newtrendingmoviesservice.dto;
 
 
 public class MovieRatingDto {
