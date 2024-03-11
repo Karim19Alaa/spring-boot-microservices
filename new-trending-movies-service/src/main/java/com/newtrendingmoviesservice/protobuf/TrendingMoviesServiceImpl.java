@@ -4,9 +4,9 @@ import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
 import com.newtrendingmoviesservice.models.Movie;
-import com.newtrendingmoviesservice.repository.MovieRepository;
 import com.newtrendingmoviesservice.repository.RatingRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,26 +15,25 @@ import java.util.ArrayList;
 public class TrendingMoviesServiceImpl extends TrendingMoviesServiceGrpc.TrendingMoviesServiceImplBase {
 
     RatingRepository ratingsRepo;
-    MovieRepository movieRepo;
-    public TrendingMoviesServiceImpl(RatingRepository ratingsRepo, MovieRepository movieRepo){
+    public TrendingMoviesServiceImpl(RatingRepository ratingsRepo){
         this.ratingsRepo=ratingsRepo;
-        this.movieRepo=movieRepo;
     }
 
     @Override
     public void getTopMoviesByRating(TrendingProto.TopMoviesRequest request, StreamObserver<TrendingProto.TopMoviesResponse> responseObserver) {
-        System.out.println(request.getLimit());
-        List<String> dbMovies = ratingsRepo.findTopRatedMovies(request.getLimit());
+        List<Object[]> result = ratingsRepo.findTopRatedMovies(request.getLimit());
         List<TrendingProto.Movie> movies = new ArrayList<>();
 
-        for(String movieID:dbMovies){
-            Movie movie = movieRepo.findById(movieID).get().toMovie();
-            double rating = ratingsRepo.getAverageRatingByMovieId(movieID);
+        for (Object[] row : result) {
+            String movieId = (String) row[0];
+            String description = (String) row[1];
+            String name = (String) row[2];
+            double rating = ((BigDecimal) row[3]).doubleValue();
 
             movies.add(TrendingProto.Movie.newBuilder()
-                    .setMovieId(movie.getMovieId())
-                    .setDescription(movie.getDescription())
-                    .setName(movie.getName())
+                    .setMovieId(movieId)
+                    .setDescription(description)
+                    .setName(name)
                     .setRating(rating)
                     .build());
         }
