@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.moviecatalogservice.models.Rating;
 import com.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
 import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest;
 import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesResponse;
@@ -32,7 +33,7 @@ public class TrendingServiceClient {
         this.trendingMoviesServiceBlockingStub = TrendingMoviesServiceGrpc.newBlockingStub(channel);
     }
 
-    public List<com.moviecatalogservice.models.Movie> getTrendingMovies(int limit) {
+    public List<Rating> getTrendingMovies(int limit) {
 
 
     TopMoviesRequest request = TopMoviesRequest.newBuilder()
@@ -44,7 +45,7 @@ public class TrendingServiceClient {
 
     return reply.getTopMoviesList()
                 .stream()
-                .map(com.moviecatalogservice.models.Movie::new)
+                .map(movie -> new Rating(movie.getMovieId(), movie.getRating()))
                 .collect(Collectors.toList());
 
     }

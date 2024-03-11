@@ -1,7 +1,6 @@
 package com.moviecatalogservice.resources;
 
 import com.moviecatalogservice.models.CatalogItem;
-import com.moviecatalogservice.models.Movie;
 import com.moviecatalogservice.models.Rating;
 import com.moviecatalogservice.services.MovieInfoService;
 import com.moviecatalogservice.services.UserRatingService;
@@ -52,10 +51,12 @@ public class MovieCatalogResource {
     }
     
     @GetMapping("/trending")
-    public ResponseEntity<List<Movie>> requestMethodName(@RequestParam int limit) {
+    public ResponseEntity<List<CatalogItem>> getTrendingMovies(@RequestParam int limit) {
         if(limit < 0)   return ResponseEntity.badRequest().build();
         
-        List<Movie> trendingMovies = this.trendingServiceClient.getTrendingMovies(limit);
+        List<Rating> ratings = this.trendingServiceClient.getTrendingMovies(limit);
+        List<CatalogItem> trendingMovies = ratings.stream().map(movieInfoService::getCatalogItem).collect(Collectors.toList());
+
         return ResponseEntity.ok(trendingMovies);
     }
     

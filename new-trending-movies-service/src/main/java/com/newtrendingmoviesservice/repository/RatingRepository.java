@@ -11,10 +11,9 @@ import java.util.List;
 
 @Repository
 public interface RatingRepository extends JpaRepository<RatingEntity, Long> {
-    @Query(value = "SELECT m.movie_id, m.description, m.name, AVG(r.rating) as avg_rating " +
-            "FROM movie m " +
-            "JOIN ratings r ON m.movie_id = r.movie_id " +
-            "GROUP BY m.movie_id " +
+    @Query(value = "SELECT movie_id, AVG(rating) as avg_rating " +
+            "FROM ratings " +
+            "GROUP BY movie_id " +
             "ORDER BY avg_rating DESC " +
             "LIMIT :limit", nativeQuery = true)
     List<Object[]> findTopRatedMovies(@Param("limit") Integer limit);
