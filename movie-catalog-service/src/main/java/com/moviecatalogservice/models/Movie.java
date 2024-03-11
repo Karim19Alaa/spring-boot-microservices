@@ -5,6 +5,7 @@ public class Movie {
     private String movieId;
     private String name;
     private String description;
+    private double rating;
 
     public Movie() {
     }
@@ -18,6 +19,7 @@ public class Movie {
         this.movieId = movie.getMovieId();
         this.name = movie.getName();
         this.description = movie.getDescription();
+        this.rating= movie.getRating();
     }
 
     public String getDescription() {
@@ -42,5 +44,12 @@ public class Movie {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }

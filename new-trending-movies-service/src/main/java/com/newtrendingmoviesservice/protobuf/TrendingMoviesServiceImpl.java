@@ -29,10 +29,13 @@ public class TrendingMoviesServiceImpl extends TrendingMoviesServiceGrpc.Trendin
 
         for(String movieID:dbMovies){
             Movie movie = movieRepo.findById(movieID).get().toMovie();
+            double rating = ratingsRepo.getAverageRatingByMovieId(movieID);
+
             movies.add(TrendingProto.Movie.newBuilder()
                     .setMovieId(movie.getMovieId())
                     .setDescription(movie.getDescription())
                     .setName(movie.getName())
+                    .setRating(rating)
                     .build());
         }
 

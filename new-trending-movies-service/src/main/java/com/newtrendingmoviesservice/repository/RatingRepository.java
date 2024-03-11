@@ -15,4 +15,6 @@ public interface RatingRepository extends JpaRepository<RatingEntity, Long> {
     @Query(value = "SELECT r.movie_id FROM ratings r GROUP BY r.movie_id ORDER BY AVG(r.rating) DESC LIMIT :limit", nativeQuery = true)
     List<String> findTopRatedMovies(@Param("limit") Integer limit);
 
+    @Query(value = "SELECT AVG(r.rating) FROM ratings r WHERE r.movie_id = :movieId", nativeQuery = true)
+    double getAverageRatingByMovieId(String movieId);
 }
