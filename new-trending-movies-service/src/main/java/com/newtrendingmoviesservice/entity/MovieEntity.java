@@ -1,10 +1,10 @@
-package com.example.newtrendingmoviesservice.entity;
-
-import com.example.newtrendingmoviesservice.models.Movie;
+package com.newtrendingmoviesservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.newtrendingmoviesservice.models.Movie;
 
 @Entity(name= "movie")
 @Table(name = "movie") // Add this line to specify the table name

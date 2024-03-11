@@ -1,12 +1,12 @@
-package com.example.newtrendingmoviesservice.protobuf;
+package com.newtrendingmoviesservice.protobuf;
 
-import com.example.newtrendingmoviesservice.models.Movie;
-import com.example.newtrendingmoviesservice.repository.MovieRepository;
-import com.example.newtrendingmoviesservice.repository.RatingRepository;
 import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
+import com.newtrendingmoviesservice.models.Movie;
+import com.newtrendingmoviesservice.repository.MovieRepository;
+import com.newtrendingmoviesservice.repository.RatingRepository;
+
 import java.util.List;
 import java.util.ArrayList;
 

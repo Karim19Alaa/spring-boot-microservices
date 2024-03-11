@@ -12,9 +12,10 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.example.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
-import com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest;
-import com.example.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesResponse;
+import com.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
+import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest;
+import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesResponse;
+
 
 
 @Service
@@ -33,7 +34,6 @@ public class TrendingServiceClient {
 
     public List<com.moviecatalogservice.models.Movie> getTrendingMovies(int limit) {
 
-    // TrendingMoviesServiceGrpc.TrendingMoviesServiceBlockingStub 
 
     TopMoviesRequest request = TopMoviesRequest.newBuilder()
                                                 .setLimit(limit)

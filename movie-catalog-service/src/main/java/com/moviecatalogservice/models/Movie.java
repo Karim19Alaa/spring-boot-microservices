@@ -14,7 +14,7 @@ public class Movie {
         this.name = name;
         this.description = description;
     }
-    public Movie(com.example.newtrendingmoviesservice.protobuf.TrendingProto.Movie movie) {
+    public Movie(com.newtrendingmoviesservice.protobuf.TrendingProto.Movie movie) {
         this.movieId = movie.getMovieId();
         this.name = movie.getName();
         this.description = movie.getDescription();

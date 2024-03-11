@@ -1,8 +1,9 @@
-package com.example.newtrendingmoviesservice.repository;
+package com.newtrendingmoviesservice.repository;
 
-import com.example.newtrendingmoviesservice.entity.MovieEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.newtrendingmoviesservice.entity.MovieEntity;
 
 @Repository
 public interface MovieRepository extends JpaRepository<MovieEntity, String> {

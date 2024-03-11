@@ -1,4 +1,4 @@
-package com.example.newtrendingmoviesservice.models;
+package com.newtrendingmoviesservice.models;
 
 public class Rating {
 

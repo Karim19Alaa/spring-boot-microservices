@@ -1,10 +1,14 @@
-package com.example.ratingsservice;
+package com.ratingsservice;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import com.newtrendingmoviesservice.protobuf.TrendingProto;
+import com.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
