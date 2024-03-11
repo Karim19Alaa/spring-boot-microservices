@@ -26,7 +26,7 @@ public class TrendingMoviesServiceImpl extends TrendingMoviesServiceGrpc.Trendin
 
         for (Object[] row : result) {
             String movieId = (String) row[0];
-            int rating = (int)((BigDecimal) row[1]).doubleValue();
+            double rating = ((BigDecimal) row[1]).doubleValue();
 
             movies.add(TrendingProto.Movie.newBuilder()
                     .setMovieId(movieId)
