@@ -9,6 +9,9 @@ Base Code From: https://github.com/yigiterinc/spring-boot-microservices
 - Spring Cloud Eureka (Service Discovery)
 - Spring Cloud Hystrix (Dashboard, Circuit Breaker pattern, Bulkhead pattern)
 - Spring io.grpc
+- Mysql
+- MongoDB
+- ProtoBuf
 
 ## Summary
 
