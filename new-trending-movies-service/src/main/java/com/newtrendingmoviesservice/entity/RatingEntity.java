@@ -10,8 +10,6 @@ public class RatingEntity {
 
     @EmbeddedId
     private RatingId id;
-
-
     private int rating;
 
     public RatingEntity(RatingId id, int rating) {
@@ -21,6 +19,11 @@ public class RatingEntity {
 
     public RatingEntity() {
     }
+
+    public Rating toRating() {
+        return new Rating(id.getMovieId(), this.rating);
+    }
+
     public RatingId getId() {
         return id;
     }
