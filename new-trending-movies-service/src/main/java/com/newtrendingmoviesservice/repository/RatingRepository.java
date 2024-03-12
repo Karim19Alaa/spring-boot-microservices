@@ -6,11 +6,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.newtrendingmoviesservice.entity.RatingEntity;
+import com.newtrendingmoviesservice.entity.RatingId;
 
 import java.util.List;
 
 @Repository
-public interface RatingRepository extends JpaRepository<RatingEntity, Long> {
+public interface RatingRepository extends JpaRepository<RatingEntity, RatingId> {
     @Query(value = "SELECT movie_id, AVG(rating) as avg_rating " +
             "FROM ratings " +
             "GROUP BY movie_id " +
