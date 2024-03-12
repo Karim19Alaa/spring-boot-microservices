@@ -18,7 +18,8 @@ Base Code From: https://github.com/yigiterinc/spring-boot-microservices
 * __TrendingMoviesService__ provides movies with highest average rating.
 * __DiscoveryServer__ is the Eureka server for service discovery.
 
-![MicroServices](image.png)
+![Microservices](https://github.com/Karim19Alaa/spring-boot-microservices/assets/89037036/3b204d0d-0f96-4f2c-afd8-889339447add)
+
 
 ## Running
 
