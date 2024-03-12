@@ -27,6 +27,23 @@ conn = mysql.connector.connect(
     database="movieratingsdb"
 )
 
+# table_creation = "CREATE DATABASE IF NOT EXISTS movieratingsdb;"
+
+cursor = conn.cursor()
+
+ratings_table_creation = """
+CREATE TABLE IF NOT EXISTS movieratingsdb.ratings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(50),
+    movie_id VARCHAR(50),
+    rating INT
+);
+"""
+
+cursor.execute(ratings_table_creation)
+
+cursor.execute("TRUNCATE TABLE movieratingsdb.ratings;")
+
 seen = set()
 
 for i in range(1000):
@@ -39,7 +56,7 @@ for i in range(1000):
     seen.add((user, movie))
     sql = f"INSERT INTO movieratingsdb.ratings (user_id, movie_id, rating) VALUES ('{user}', '{movie}', {random.randint(2, 5)});"
     # print(sql)
-    conn.cursor().execute(sql)
+    cursor.execute(sql)
 
 conn.commit()
 conn.close()
