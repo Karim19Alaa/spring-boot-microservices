@@ -1,4 +1,4 @@
-package com.newtrendingmoviesservice.entity;
+package com.trendingmoviesservice.entity;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;

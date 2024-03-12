@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option java_package = "com.newtrendingmoviesservice.protobuf";
+option java_package = "com.trendingmoviesservice.protobuf";
 option java_outer_classname = "TrendingProto";
 
-package com.newtrendingmoviesservice.protobuf;
+package com.trendingmoviesservice.protobuf;
 
 
 service TrendingMoviesService {

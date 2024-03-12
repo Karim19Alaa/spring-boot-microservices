@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.moviecatalogservice.models.Rating;
-import com.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
-import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest;
-import com.newtrendingmoviesservice.protobuf.TrendingProto.TopMoviesResponse;
+import com.trendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
+import com.trendingmoviesservice.protobuf.TrendingProto.TopMoviesRequest;
+import com.trendingmoviesservice.protobuf.TrendingProto.TopMoviesResponse;
 
 
 

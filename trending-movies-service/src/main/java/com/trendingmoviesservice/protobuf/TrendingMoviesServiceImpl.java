@@ -1,10 +1,9 @@
-package com.newtrendingmoviesservice.protobuf;
+package com.trendingmoviesservice.protobuf;
 
 import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
-import com.newtrendingmoviesservice.models.Movie;
-import com.newtrendingmoviesservice.repository.RatingRepository;
+import com.trendingmoviesservice.repository.RatingRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

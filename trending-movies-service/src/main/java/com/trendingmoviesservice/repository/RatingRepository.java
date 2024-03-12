@@ -1,13 +1,12 @@
-package com.newtrendingmoviesservice.repository;
+package com.trendingmoviesservice.repository;
 
-import com.newtrendingmoviesservice.entity.RatingId;
+import com.trendingmoviesservice.entity.RatingId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.newtrendingmoviesservice.entity.RatingEntity;
-import com.newtrendingmoviesservice.entity.RatingId;
+import com.trendingmoviesservice.entity.RatingEntity;
 
 import java.util.List;
 

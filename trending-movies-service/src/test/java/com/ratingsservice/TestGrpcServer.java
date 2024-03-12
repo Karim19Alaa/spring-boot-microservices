@@ -6,8 +6,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.newtrendingmoviesservice.protobuf.TrendingProto;
-import com.newtrendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
+import com.trendingmoviesservice.protobuf.TrendingProto;
+import com.trendingmoviesservice.protobuf.TrendingMoviesServiceGrpc;
 
 import static org.junit.jupiter.api.Assertions.*;
 

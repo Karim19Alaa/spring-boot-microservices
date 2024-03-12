@@ -1,4 +1,4 @@
-package com.newtrendingmoviesservice.models;
+package com.trendingmoviesservice.models;
 
 public class Movie {
 

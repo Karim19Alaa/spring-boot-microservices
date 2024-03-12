@@ -1,8 +1,8 @@
-package com.newtrendingmoviesservice.entity;
+package com.trendingmoviesservice.entity;
 
 import javax.persistence.*;
 
-import com.newtrendingmoviesservice.models.Rating;
+import com.trendingmoviesservice.models.Rating;
 
 @Entity(name = "ratings")
 @Table(name = "ratings")

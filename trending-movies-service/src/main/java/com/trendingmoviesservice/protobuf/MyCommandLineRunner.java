@@ -1,4 +1,4 @@
-package com.newtrendingmoviesservice.protobuf;
+package com.trendingmoviesservice.protobuf;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.newtrendingmoviesservice.repository.RatingRepository;
+import com.trendingmoviesservice.repository.RatingRepository;
 
 @Component
 public class MyCommandLineRunner implements CommandLineRunner {
