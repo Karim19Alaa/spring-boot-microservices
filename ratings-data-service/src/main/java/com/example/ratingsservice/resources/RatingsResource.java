@@ -25,7 +25,7 @@ public class RatingsResource {
 
     @RequestMapping("/{userId}")
     public UserRating getRatingsOfUser(@PathVariable String userId) {
-        List<RatingEntity> ratingEntities = ratingRepository.findByUserId(userId);
+        List<RatingEntity> ratingEntities = ratingRepository.findByIdUserId(userId);
         List<Rating> ratings = ratingEntities.stream()
                 .map(RatingEntity::toRating)
                 .collect(Collectors.toList());
