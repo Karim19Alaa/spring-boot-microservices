@@ -26,7 +26,9 @@ Base Code From: https://github.com/yigiterinc/spring-boot-microservices
 
 ## Running
 
-You can run each project either using your IDE or *mvn spring-boot:run* starting from __DiscoveryServer__. Projects will run on the following endpoints:
+1. Configure Mysql connection details in `application.properties` in __RatingsDataService__ and __TrendingMoviesService__.
+2. Configure MongoDB connection details in `application.properties` in __MovieInfoService__.
+3. You can run each project either using your IDE or *mvn spring-boot:run* starting from __DiscoveryServer__. Projects will run on the following endpoints:
 
 * Discovery Server - http://localhost:8761
 * Movie Catalog - http://localhost:8081/catalog/{userId}
