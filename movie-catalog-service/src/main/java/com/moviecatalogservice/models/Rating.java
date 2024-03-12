@@ -13,6 +13,11 @@ public class Rating {
         this.rating = rating;
     }
 
+    public Rating(String movieId, double rating) {
+        this.movieId = movieId;
+        this.rating = (int)Math.round(rating);
+    }
+
     public String getMovieId() {
         return movieId;
     }

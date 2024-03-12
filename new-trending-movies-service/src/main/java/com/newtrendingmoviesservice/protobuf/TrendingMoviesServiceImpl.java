@@ -4,9 +4,9 @@ import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
 import com.newtrendingmoviesservice.models.Movie;
-import com.newtrendingmoviesservice.repository.MovieRepository;
 import com.newtrendingmoviesservice.repository.RatingRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,24 +15,22 @@ import java.util.ArrayList;
 public class TrendingMoviesServiceImpl extends TrendingMoviesServiceGrpc.TrendingMoviesServiceImplBase {
 
     RatingRepository ratingsRepo;
-    MovieRepository movieRepo;
-    public TrendingMoviesServiceImpl(RatingRepository ratingsRepo, MovieRepository movieRepo){
+    public TrendingMoviesServiceImpl(RatingRepository ratingsRepo){
         this.ratingsRepo=ratingsRepo;
-        this.movieRepo=movieRepo;
     }
 
     @Override
     public void getTopMoviesByRating(TrendingProto.TopMoviesRequest request, StreamObserver<TrendingProto.TopMoviesResponse> responseObserver) {
-        System.out.println(request.getLimit());
-        List<String> dbMovies = ratingsRepo.findTopRatedMovies(request.getLimit());
+        List<Object[]> result = ratingsRepo.findTopRatedMovies(request.getLimit());
         List<TrendingProto.Movie> movies = new ArrayList<>();
 
-        for(String movieID:dbMovies){
-            Movie movie = movieRepo.findById(movieID).get().toMovie();
+        for (Object[] row : result) {
+            String movieId = (String) row[0];
+            double rating = ((BigDecimal) row[1]).doubleValue();
+
             movies.add(TrendingProto.Movie.newBuilder()
-                    .setMovieId(movie.getMovieId())
-                    .setDescription(movie.getDescription())
-                    .setName(movie.getName())
+                    .setMovieId(movieId)
+                    .setRating(rating)
                     .build());
         }
 

@@ -8,49 +8,28 @@ import com.newtrendingmoviesservice.models.Rating;
 @Table(name = "ratings")
 public class RatingEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    private String userId;
-    private String movieId;
+    @EmbeddedId
+    private RatingId id;
     private int rating;
+
+    public RatingEntity(RatingId id, int rating) {
+        this.id = id;
+        this.rating = rating;
+    }
 
     public RatingEntity() {
     }
 
-    public RatingEntity(String userId, String movieId, int rating) {
-        this.userId = userId;
-        this.movieId = movieId;
-        this.rating = rating;
-    }
     public Rating toRating() {
-        return new Rating(this.movieId, this.rating);
+        return new Rating(id.getMovieId(), this.rating);
     }
 
-    public Long getId() {
+    public RatingId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(RatingId id) {
         this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(String movieId) {
-        this.movieId = movieId;
     }
 
     public int getRating() {
